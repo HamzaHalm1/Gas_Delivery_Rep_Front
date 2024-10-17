@@ -1,0 +1,14 @@
+<div style="margin-top: 50px">
+    <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+        <div class="parent">
+            <div class="child">
+                <div nz-row class="imgDiv">
+                     <h2 style="margin-left: 120px ; margin-bottom: 40px;">{{ car.name }} Location</h2>
+                </div>
+                <div style="width: 100%;">
+                    <iframe src="https://maps.api.google.com/maps?&output=embed" width="100%" height="600" frameborder="0" style="border:0"></iframe>
+                </div>
+            </div>
+        </div>
+    </nz-spin>
+</div>   
