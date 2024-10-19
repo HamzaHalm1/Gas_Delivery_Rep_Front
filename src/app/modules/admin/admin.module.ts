@@ -10,6 +10,8 @@ import { GetBookingsComponent } from './components/get-bookings/get-bookings.com
 import { SearchCarComponent } from './components/search-gas/search-gas.component';
 import { LocationPageComponent } from './components/location-page/location-page.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { PostDriverComponent } from './components/post-driver/post-driver.component';
+import { UpdateDriverComponent } from './components/update-driver/update-driver.component';
 
 
 
@@ -20,7 +22,9 @@ import { GoogleMapsModule } from '@angular/google-maps';
     UpdateCarComponent,
     GetBookingsComponent,
     SearchCarComponent,
-    LocationPageComponent
+    LocationPageComponent,
+    PostDriverComponent,
+    UpdateDriverComponent
   ],
   imports: [
     CommonModule,

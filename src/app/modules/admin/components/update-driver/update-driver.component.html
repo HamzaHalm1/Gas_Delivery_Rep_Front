@@ -1,0 +1,106 @@
+<div style="margin-top: 150px">
+  <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+      <div class="parent">
+          <div class="child">
+              <div nz-row class="imgDiv">
+                   <h2 style="margin-left: 120px">Update Driver</h2>
+              </div>
+
+              <form nz-form [formGroup]="updateForm" >
+                  <div nz-row>
+                      <div class="file-upload-container">
+                         <label class="file-upload-label">
+                              <span style="margin-left: 100px">Select a File</span>
+                              <input type="file" nz-button nzType="primary" accept="image/x-png, image/gif, image/jpeg"
+                                  (change)="onFileSelected($event)" />
+                              </label>
+
+                              <div *ngIf="imagePreview" class="image-preview">
+                                  <div class="circle-image">
+                                      <img [src]="imagePreview" alt="Existing Image" class="preview-image" />
+                                  </div>
+                              </div>
+
+                              <div *ngIf="existingImage" class="image-preview">
+                                  <div class="circle-image">
+                                       <img [src]="existingImage" alt="Existing Image" class="preview-image" />
+                                  </div>
+                              </div>
+                          </div>
+
+
+                          <div nz-col nzSpan="24">
+                            <nz-form-item>
+                                <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                                    <input nz-input nzPlaceHolder="Name" formControlName="name"/>
+                                </nz-form-control>
+                            </nz-form-item>
+                        </div>
+
+                        <div nz-col nzSpan="24">
+                          <nz-form-item>
+                              <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                                  <input nz-input nzPlaceHolder="Email" formControlName="email"/>
+                              </nz-form-control>
+                          </nz-form-item>
+                      </div>
+
+                      <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                                <input nz-input placeholder="Password" formControlName="password">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                      <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                                <input nz-input placeholder="Phone Number" formControlName="phoneNumber">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                      <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                                <input nz-input placeholder="LicenseNumber" formControlName="licenseNumber">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                          <div nz-col nzSpan="24">
+                              <nz-form-item>
+                                  <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                                      <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Driving License Type"
+                                      formControlName="drivingLicenseType" >
+                                      <nz-option *ngFor="let drivingLicenseType of listOfLicenses" nzLabel="{{ drivingLicenseType }}"
+                                          nzValue="{{ drivingLicenseType }}"></nz-option>
+                                      </nz-select>
+                                  </nz-form-control>
+                              </nz-form-item>
+                          </div>
+
+                        <!-- <div nz-col nzSpan="24">
+                          <nz-form-item>
+                              <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                                  <nz-select nzPlaceHolder="Quantity" formControlName="quantity" [ngModel]="'add'" style="width: 160px">
+                                    <nz-option nzLabel="+" nzValue="add"></nz-option>
+                                    <nz-option nzLabel="-" nzValue="minus"></nz-option>
+                                  </nz-select>
+                              </nz-form-control>
+                          </nz-form-item>
+                      </div> -->
+
+
+                          </div>
+
+                          <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="updateDriver()">
+                              Update Driver
+                          </button>
+
+                  </form>
+              </div>
+          </div>
+  </nz-spin>
+</div>

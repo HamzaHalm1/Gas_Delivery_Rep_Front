@@ -66,6 +66,38 @@ export class AdminService {
 
   }
 
+  postDriver(driverDto: any):Observable<any>{
+    return this.http.post(BASIC_URL + "/api/admin/driver", driverDto, {
+      headers: this.createAuthorizationHeader()
+    });
+
+  }
+
+  getAllDrivers():Observable<any>{
+    return this.http.get(BASIC_URL + "/api/admin/drivers",  {
+      headers: this.createAuthorizationHeader()
+
+    });
+  }
+
+  getDriverById(id:number):Observable<any>{
+    return this.http.get(BASIC_URL + "/api/admin/driver/" + id, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  updateDriver(userId:number,driverDto:any):Observable<any>{
+    return this.http.put(BASIC_URL + "/api/admin/driver/"+ userId, driverDto, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  deleteDriver(id:number):Observable<any>{
+    return this.http.delete(BASIC_URL + "/api/admin/driver/" + id, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
 
   createAuthorizationHeader(): HttpHeaders{
     let authHeaders: HttpHeaders = new HttpHeaders();

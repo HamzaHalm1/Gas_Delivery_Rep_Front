@@ -6,6 +6,9 @@ import { UpdateCarComponent } from './components/update-car/update-car.component
 import { GetBookingsComponent } from './components/get-bookings/get-bookings.component';
 import { SearchCarComponent } from './components/search-gas/search-gas.component';
 import { LocationPageComponent } from './components/location-page/location-page.component';
+import { PostDriverComponent } from './components/post-driver/post-driver.component';
+import { UpdateDriverComponent } from './components/update-driver/update-driver.component';
+
 
 const routes: Routes = [
   {path:"dashboard", component: AdminDashboardComponent},
@@ -13,7 +16,10 @@ const routes: Routes = [
   {path:"car/:id", component: UpdateCarComponent},
   {path:"bookings", component: GetBookingsComponent},
   {path:"search", component: SearchCarComponent},
-  {path:"car/location/:id", component: LocationPageComponent}
+  {path:"driver", component: PostDriverComponent},
+  {path:"car/location/:id", component: LocationPageComponent},
+  {path:"driver/:id", component: UpdateDriverComponent},
+
 
 
 

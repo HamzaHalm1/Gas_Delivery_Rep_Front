@@ -1,30 +1,67 @@
 <div style="background-color: #f8f8f8; min-height: 91vh;">
 
-    <div style="padding-top: 10px;"></div>
+  <!-- Add a select to choose between Gas or Driver -->
+  <div style="padding: 10px;">
+      <label for="entitySelect">Show:</label>
+      <select id="entitySelect" [(ngModel)]="selectedEntity" (change)="onEntityChange()">
+          <option value="gas">Gas Bottles</option>
+          <option value="drivers">Drivers</option>
+      </select>
+  </div>
 
-    <div style="margin-top: 10px;" class="child" *ngFor="let Gas of Gas">
-        <div nz-row>
-            <div nz-col nzSpan="8">
-                <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="Gas.processedImg" alt="profile"/>
-            </div>
-            <div nz-col nzSpan="16">
-                <h2 style="cursor: pointer; color: #108ee9;">
-                {{Gas.brand}}</h2>
-                <p>{{Gas.description}}</p>
+  <!-- Show Gas Bottles if selected -->
+  <div *ngIf="selectedEntity === 'gas'">
+      <div style="margin-top: 10px;" class="child" *ngFor="let Gas of Gas">
+          <div nz-row>
+              <div nz-col nzSpan="8">
+                  <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="Gas.processedImg" alt="profile"/>
+              </div>
+              <div nz-col nzSpan="16">
+                  <h2 style="cursor: pointer; color: #108ee9;">
+                  {{Gas.brand}}</h2>
+                  <p>{{Gas.description}}</p>
 
-                <hr>
-                <h5>Price: <b>{{Gas.price}}MAD</b>  - Quantity:
-                    <b>{{Gas.quantity}}</b> - Type: <b>{{Gas.type}}</b>
-                </h5>
-                <hr>
-                <div style="float: right;">
-                    <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" routerLink="/admin/car/{{Gas.id}}"
-                    >Update</button>
-                    <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="deleteGas(Gas.id)"
-                    nzDanger>Delete</button>
-                </div>
-            </div>
+                  <hr>
+                  <h5>Price: <b>{{Gas.price}} MAD</b>  - Quantity:
+                      <b>{{Gas.quantity}}</b> - Type: <b>{{Gas.type}}</b>
+                  </h5>
+                  <hr>
+                  <div style="float: right;">
+                      <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" routerLink="/admin/car/{{Gas.id}}"
+                      >Update</button>
+                      <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="deleteGas(Gas.id)" nzDanger>
+                      Delete</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
-        </div>
-    </div>
+  <!-- Show Drivers if selected -->
+  <div *ngIf="selectedEntity === 'drivers'">
+      <div style="margin-top: 10px;" class="child" *ngFor="let driver of drivers">
+          <div nz-row>
+              <div nz-col nzSpan="8">
+                  <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="driver.processedImg" alt="profile"/>
+              </div>
+              <div nz-col nzSpan="16">
+                  <h2 style="cursor: pointer; color: #108ee9;">
+                  {{driver.name}}</h2>
+                  <p>License Number: {{driver.licenseNumber}}</p>
+
+                  <hr>
+                  <h5>Email: <b>{{driver.email}}</b>  - Phone:
+                      <b>{{driver.phoneNumber}}</b>
+                  </h5>
+                  <hr>
+                  <div style="float: right;">
+                      <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" routerLink="/admin/driver/{{driver.id}}">
+                      Update</button>
+                      <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="deleteDriver(driver.id)" nzDanger>
+                      Delete</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>

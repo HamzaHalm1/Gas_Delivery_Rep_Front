@@ -1,0 +1,81 @@
+<div style="margin-top: 50px">
+  <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+      <div class="parent">
+          <div class="child">
+              <div nz-row class="imgDiv">
+                  <h2 style="margin-left: 230px"> Post New Driver</h2>
+              </div>
+
+              <form nz-form [formGroup]="postDriverForm">
+                  <div nz-row>
+                    
+                    <div nz-col [nzMd]="24" [nzSm]="24" [nzXs]="24">
+                      <div class="profile-badge">
+                          <label for="upload_profile_image" class="upload-label" *ngIf="selectedFile">
+                              <img class="profile" [src]="imagePreview" alt="profile" />
+                          </label>
+                          <input type="file" nz-button nzType="primary" id="upload_profile_image"
+                              accept="image/x-png,image/gif,image/jpeg" (change)="onFileSelected($event)"/>
+                          <button nz-button nzShape="circle"></button>
+                      </div>
+                  </div>
+
+                      <div nz-col nzSpan="24">
+                          <nz-form-item>
+                              <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                                  <input nz-input placeholder="Name" formControlName="name">
+                              </nz-form-control>
+                          </nz-form-item>
+                      </div>
+
+                      <div nz-col nzSpan="24">
+                        <nz-form-item>
+                            <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                                <input nz-input placeholder="Email" formControlName="email">
+                            </nz-form-control>
+                        </nz-form-item>
+                    </div>
+
+                    <div nz-col nzSpan="24">
+                      <nz-form-item>
+                          <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                              <input nz-input placeholder="Password" formControlName="password">
+                          </nz-form-control>
+                      </nz-form-item>
+                  </div>
+
+                  <div nz-col nzSpan="24">
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                            <input nz-input placeholder="Phone Number" formControlName="phoneNumber">
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                  <div nz-col nzSpan="24">
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                            <input nz-input placeholder="LicenseNumber" formControlName="licenseNumber">
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+
+                  <div nz-col nzSpan="24">
+                    <nz-form-item>
+                        <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a License Type" formControlName="drivingLicenseType">
+                                <nz-option *ngFor="let license of listOfLicenses" nzLabel="{{license}}"
+                                    nzValue="{{license}}"></nz-option>
+                            </nz-select>
+                        </nz-form-control>
+                    </nz-form-item>
+                </div>
+                      <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'" (click)="postDriver()">
+                          Post Driver
+                      </button>
+                  </div>
+              </form>
+          </div>
+      </div>
+  </nz-spin>
+</div>

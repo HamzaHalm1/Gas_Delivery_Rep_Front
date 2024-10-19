@@ -10,12 +10,15 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 export class AdminDashboardComponent {
 
   Gas: any = [];
+  drivers: any = [];
+  selectedEntity: string = 'gas'; // Default selection
 
   constructor(private adminService: AdminService,
     private message: NzMessageService){}
 
   ngOnInit(){
     this.getAllGas();
+    this.getAllDrivers();
   }
 
   getAllGas(){
@@ -37,4 +40,30 @@ export class AdminDashboardComponent {
     })
 
   }
+
+  getAllDrivers() {
+    this.adminService.getAllDrivers().subscribe((res) => {
+      this.drivers = [];
+      res.forEach((element: { processedImg: string; returnedImage: string }) => {
+        element.processedImg = 'data:image/jpeg;base64,' + element.returnedImage;
+        this.drivers.push(element);
+      });
+    });
+  }
+
+  deleteDriver(id: number) {
+    this.adminService.deleteDriver(id).subscribe((res) => {
+      this.message.success("Driver deleted successfully", { nzDuration: 5000 });
+      this.getAllDrivers();
+    });
+  }
+
+    // Handle entity selection change
+    onEntityChange() {
+      if (this.selectedEntity === 'gas') {
+        this.getAllGas();
+      } else if (this.selectedEntity === 'drivers') {
+        this.getAllDrivers();
+      }
+    }
 }
