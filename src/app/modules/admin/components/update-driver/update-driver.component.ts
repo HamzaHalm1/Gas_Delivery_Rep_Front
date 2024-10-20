@@ -45,7 +45,7 @@ export class UpdateDriverComponent {
         this.isSpinning=false;
         const driverDto= res;
         this.existingImage= 'data:image/jpeg;base64,' + res.returnedImage;
-        // carDto.year = new Date(carDto.year);
+        // driverDto.year = new Date(driverDto.year);
         this.updateForm.patchValue(driverDto);
       })
     }

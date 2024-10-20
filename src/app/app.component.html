@@ -1,7 +1,8 @@
 <div *ngIf="!isAdminLoggedIn">
   <nz-header class="main-header" nz-row nzType="flex" class="custom-navbar">
     <div class="navbar-title">
-      <a routerLink="/login"><img src="assets\images\HM.png" ></a>
+      <!-- <a routerLink="/login"><img src="assets\images\HM.png" ></a> -->
+      <a routerLink="/login" style="font-size: x-large;">Gas App</a>
     </div>
     <div class="nav-links">
       <a nz-button nzType="link" routerLink="/register" routerLinkActive="active">Sign Up</a>
@@ -17,10 +18,10 @@
     </div>
     <div class="nav-links">
       <a nz-button nzType="link" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
-      <a nz-button nzType="link" routerLink="/admin/car" routerLinkActive="active">Post Gas Bottle</a>
-      <a nz-button nzType="link" routerLink="/admin/bookings" routerLinkActive="active">Purchases</a>
+      <a nz-button nzType="link" routerLink="/admin/post/gas" routerLinkActive="active">Post Gas Bottle</a>
+      <a nz-button nzType="link" routerLink="/admin/purchases" routerLinkActive="active">Purchases</a>
       <a nz-button nzType="link" routerLink="/admin/search" routerLinkActive="active">Search Gas Bottle</a>
-      <a nz-button nzType="link" routerLink="/admin/driver" routerLinkActive="active">Post Driver</a>
+      <a nz-button nzType="link" routerLink="/admin/post/driver" routerLinkActive="active">Post Driver</a>
       <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Logout</a>
     </div>
   </nz-header>

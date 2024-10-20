@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UpdateCarComponent } from './update-car.component';
+import { UpdateGasComponent } from './update-gas.component';
 
-describe('UpdateCarComponent', () => {
-  let component: UpdateCarComponent;
-  let fixture: ComponentFixture<UpdateCarComponent>;
+describe('UpdateGasComponent', () => {
+  let component: UpdateGasComponent;
+  let fixture: ComponentFixture<UpdateGasComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [UpdateCarComponent]
+      declarations: [UpdateGasComponent]
     });
-    fixture = TestBed.createComponent(UpdateCarComponent);
+    fixture = TestBed.createComponent(UpdateGasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

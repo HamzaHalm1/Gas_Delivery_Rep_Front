@@ -13,61 +13,61 @@ export class AdminService {
 
   constructor(private http: HttpClient) { }
 
-  postGas(carDto: any):Observable<any>{
-    return this.http.post(BASIC_URL + "/api/admin/car", carDto, {
+  postGas(gasDto: any):Observable<any>{
+    return this.http.post(BASIC_URL + "/api/admin/post/gas", gasDto, {
       headers: this.createAuthorizationHeader()
     });
 
   }
 
   getAllGas():Observable<any>{
-    return this.http.get(BASIC_URL + "/api/admin/cars",  {
+    return this.http.get(BASIC_URL + "/api/admin/gas",  {
       headers: this.createAuthorizationHeader()
 
     });
   }
 
   deleteGas(id:number):Observable<any>{
-    return this.http.delete(BASIC_URL + "/api/admin/car/" + id, {
+    return this.http.delete(BASIC_URL + "/api/admin/gas/" + id, {
       headers: this.createAuthorizationHeader()
     });
   }
 
   getGasById(id:number):Observable<any>{
-    return this.http.get(BASIC_URL + "/api/admin/car/" + id, {
+    return this.http.get(BASIC_URL + "/api/admin/gas/" + id, {
       headers: this.createAuthorizationHeader()
     });
   }
 
-  updateCar(carId:number,carDto:any):Observable<any>{
-    return this.http.put(BASIC_URL + "/api/admin/car/"+ carId, carDto, {
+  updateGas(gasId:number,gasDto:any):Observable<any>{
+    return this.http.put(BASIC_URL + "/api/admin/gas/"+ gasId, gasDto, {
       headers: this.createAuthorizationHeader()
     });
   }
 
   getGasPurchases():Observable<any>{
-    return this.http.get(BASIC_URL + "/api/admin/car/bookings",  {
+    return this.http.get(BASIC_URL + "/api/admin/gas/purchases",  {
       headers: this.createAuthorizationHeader()
 
     });
   }
 
  changePurchaseStatus(purchaseId:number, status: string):Observable<any>{
-    return this.http.get(BASIC_URL + `/api/admin/car/bookings/${purchaseId}/${status}`,  {
+    return this.http.get(BASIC_URL + `/api/admin/gas/purchases/${purchaseId}/${status}`,  {
       headers: this.createAuthorizationHeader()
 
     });
   }
 
-  searchGas(searchGasBottleDto: any):Observable<any>{
-    return this.http.post(BASIC_URL + "/api/admin/car/search", searchGasBottleDto, {
+  searchGas(searchGasDto: any):Observable<any>{
+    return this.http.post(BASIC_URL + "/api/admin/gas/search", searchGasDto, {
       headers: this.createAuthorizationHeader()
     });
 
   }
 
   postDriver(driverDto: any):Observable<any>{
-    return this.http.post(BASIC_URL + "/api/admin/driver", driverDto, {
+    return this.http.post(BASIC_URL + "/api/admin/post/driver", driverDto, {
       headers: this.createAuthorizationHeader()
     });
 

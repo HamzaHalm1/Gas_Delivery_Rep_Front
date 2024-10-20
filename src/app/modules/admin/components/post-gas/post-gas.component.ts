@@ -5,13 +5,13 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-post-car',
-  templateUrl: './post-car.component.html',
-  styleUrls: ['./post-car.component.scss']
+  selector: 'app-post-gas',
+  templateUrl: './post-gas.component.html',
+  styleUrls: ['./post-gas.component.scss']
 })
-export class PostCarComponent {
+export class PostGasComponent {
 
-  postCarForm!: FormGroup;
+  postGasForm!: FormGroup;
   isSpinning: boolean=false;
   selectedFile!: File;
   imagePreview:string | ArrayBuffer | null | undefined;
@@ -25,7 +25,7 @@ export class PostCarComponent {
     private router: Router){}
 
   ngOnInit(){
-    this.postCarForm = this.fb.group({
+    this.postGasForm = this.fb.group({
       brand: [null, Validators.required],
       type: [null, Validators.required],
       quantity: [null, Validators.required],
@@ -34,22 +34,22 @@ export class PostCarComponent {
     })
   }
 
-  postCar(){
-    console.log(this.postCarForm.value);
+  postGas(){
+    console.log(this.postGasForm.value);
     // console.log(this.selectedFile);
     this.isSpinning=true;
     const formData: FormData = new FormData();
     formData.append('image', this.selectedFile);
 
-    formData.append('brand', this.postCarForm.get('brand')?.value);
+    formData.append('brand', this.postGasForm.get('brand')?.value);
 
-    formData.append('type', this.postCarForm.get('type')?.value);
+    formData.append('type', this.postGasForm.get('type')?.value);
 
-    formData.append('quantity', this.postCarForm.get('quantity')?.value);
+    formData.append('quantity', this.postGasForm.get('quantity')?.value);
 
-    formData.append('description', this.postCarForm.get('description')?.value);
+    formData.append('description', this.postGasForm.get('description')?.value);
 
-    formData.append('price', this.postCarForm.get('price')?.value);
+    formData.append('price', this.postGasForm.get('price')?.value);
 
 
 

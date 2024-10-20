@@ -3,11 +3,11 @@ import { AdminService } from '../../services/admin.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
-  selector: 'app-get-bookings',
-  templateUrl: './get-bookings.component.html',
-  styleUrls: ['./get-bookings.component.scss']
+  selector: 'app-get-purchases',
+  templateUrl: './get-purchases.component.html',
+  styleUrls: ['./get-purchases.component.scss']
 })
-export class GetBookingsComponent {
+export class GetPurchasesComponent {
 
   purchases:any;
   isSpinning = false;
@@ -16,10 +16,10 @@ export class GetBookingsComponent {
     private message: NzMessageService){
     this.getPurchases();
   }
-  booking: any = {
-    // Initialize booking object with relevant properties including bookCarStatus
-    bookCarStatus: 'pending' // Set initial status as 'pending' for demonstration
-  };
+  // purchase: any = {
+  //   // Initialize purchase object with relevant properties including purchaseStatus
+  //   purchaseStatus: 'pending' // Set initial status as 'pending' for demonstration
+  // };
   getPurchases(){
     this.isSpinning = true;
     this.adminService.getGasPurchases().subscribe((res)=>{

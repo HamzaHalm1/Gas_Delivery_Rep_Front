@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "car_rental_angular": {
+    "gas_app_angular": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/car_rental_angular",
+            "outputPath": "dist/gas_app_angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -71,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "car_rental_angular:build:production"
+              "browserTarget": "gas_app_angular:build:production"
             },
             "development": {
-              "browserTarget": "car_rental_angular:build:development"
+              "browserTarget": "gas_app_angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -82,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "car_rental_angular:build"
+            "browserTarget": "gas_app_angular:build"
           }
         },
         "test": {

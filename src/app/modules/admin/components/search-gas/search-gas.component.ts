@@ -4,11 +4,11 @@ import { AdminService } from '../../services/admin.service';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
-  selector: 'app-search-car',
+  selector: 'app-search-gas',
   templateUrl: './search-gas.component.html',
   styleUrls: ['./search-gas.component.scss']
 })
-export class SearchCarComponent {
+export class SearchGasComponent {
 
   gas:any = [];
   searchGasForm!: FormGroup;
@@ -40,7 +40,7 @@ export class SearchCarComponent {
       this.isSpinning = false;
     })
   }
-  deleteCar(id: number){
+  deleteGas(id: number){
     console.log(id);
     this.service.deleteGas(id).subscribe((res)=>{
       this.message.success("Gas Bottle deleted successfully",{nzDuration: 5000});

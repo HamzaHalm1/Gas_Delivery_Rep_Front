@@ -5,11 +5,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd/message';
 
 @Component({
-  selector: 'app-update-car',
-  templateUrl: './update-car.component.html',
-  styleUrls: ['./update-car.component.scss']
+  selector: 'app-update-gas',
+  templateUrl: './update-gas.component.html',
+  styleUrls: ['./update-gas.component.scss']
 })
-export class UpdateCarComponent {
+export class UpdateGasComponent {
 
   isSpinning = false;
   gasId:number=this.activatedRoute.snapshot.params["id"];
@@ -36,22 +36,21 @@ export class UpdateCarComponent {
         price: [null, Validators.required],
         description: [null, Validators.required],
       })
-      this.getCarById();
+      this.getGasById();
     }
 
-    getCarById(){
+    getGasById(){
       this.isSpinning=true;
       this.adminService.getGasById(this.gasId).subscribe((res)=> {
         console.log(res);
         this.isSpinning=false;
-        const carDto= res;
+        const gasDto= res;
         this.existingImage= 'data:image/jpeg;base64,' + res.returnedImage;
-        carDto.year = new Date(carDto.year);
-        this.updateForm.patchValue(carDto);
+        this.updateForm.patchValue(gasDto);
       })
     }
 
-    updateCar(){
+    updateGas(){
       this.isSpinning=true;
       const formData: FormData = new FormData();
       if(this.imgChanged && this.selectedFile){
@@ -62,8 +61,6 @@ export class UpdateCarComponent {
 
       formData.append('type', this.updateForm.get('type')?.value);
 
-      formData.append('year', this.updateForm.get('year')?.value);
-
       formData.append('quantity', this.updateForm.get('quantity')?.value);
 
       formData.append('description', this.updateForm.get('description')?.value);
@@ -73,7 +70,7 @@ export class UpdateCarComponent {
 
 
       console.log(formData);
-      this.adminService.updateCar(this.gasId,formData).subscribe((res)=>{
+      this.adminService.updateGas(this.gasId,formData).subscribe((res)=>{
         this.message.success("Gas Bottle updated successfully", {nzDuration: 5000});
         this.router.navigateByUrl("/admin/dashboard");
         console.log(res);
