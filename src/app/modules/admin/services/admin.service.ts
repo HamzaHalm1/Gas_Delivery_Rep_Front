@@ -98,6 +98,37 @@ export class AdminService {
     });
   }
 
+  postTruck(truckDto: any):Observable<any>{
+    return this.http.post(BASIC_URL + "/api/admin/post/truck", truckDto, {
+      headers: this.createAuthorizationHeader()
+    });
+
+  }
+
+  getAllTrucks():Observable<any>{
+    return this.http.get(BASIC_URL + "/api/admin/trucks",  {
+      headers: this.createAuthorizationHeader()
+
+    });
+  }
+
+  deleteTruck(id:number):Observable<any>{
+    return this.http.delete(BASIC_URL + "/api/admin/truck/" + id, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  getTruckById(id:number):Observable<any>{
+    return this.http.get(BASIC_URL + "/api/admin/truck/" + id, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  updateTruck(truckId:number,truckDto:any):Observable<any>{
+    return this.http.put(BASIC_URL + "/api/admin/gas/"+ truckId, truckDto, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
 
   createAuthorizationHeader(): HttpHeaders{
     let authHeaders: HttpHeaders = new HttpHeaders();

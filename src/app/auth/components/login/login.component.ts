@@ -37,7 +37,7 @@ ngOnInit(){
           StorageService.saveUser(user);
           StorageService.saveToken(res.jwt);
           if(StorageService.isAdminLoggedIn()){
-            this.router.navigateByUrl("/admin/dashboard");
+            this.router.navigateByUrl("/admin/list/gas");
             this.message.success("Welcome Admin",{nzDuration: 5000});
           }
         }

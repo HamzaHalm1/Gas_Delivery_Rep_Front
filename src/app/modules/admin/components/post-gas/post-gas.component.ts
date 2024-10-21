@@ -56,7 +56,7 @@ export class PostGasComponent {
     console.log(formData);
     this.adminService.postGas(formData).subscribe((res)=>{
       this.message.success("Gas bottle posted successfully", {nzDuration: 5000});
-      this.router.navigateByUrl("/admin/dashboard");
+      this.router.navigateByUrl("/admin/list/gas");
       console.log(res);
     }, error =>{
       this.message.error("Error while posting gas bottle", {nzDuration: 5000})

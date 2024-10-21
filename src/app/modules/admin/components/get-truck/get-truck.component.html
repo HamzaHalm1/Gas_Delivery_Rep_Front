@@ -1,0 +1,32 @@
+<div style="background-color: #f8f8f8; min-height: 91vh;">
+
+  <div style="padding-top: 10px;"></div>
+
+  <div style="margin-top: 10px;" class="child" *ngFor="let truck of trucks">
+      <div nz-row>
+          <div nz-col nzSpan="8">
+              <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="truck.processedImg" alt="profile"/>
+          </div>
+          <div nz-col nzSpan="16">
+              <h2 style="cursor: pointer; color: #108ee9;">
+              {{truck.brand}} - {{truck.type}}</h2>
+              <p>{{truck.description}}</p>
+
+              <hr>
+              <h5>Quantite: <b>{{truck.quantity}}</b> - Fuel Type: <b>{{truck.fuel}}</b> - Transmission:
+                  <b>{{truck.transmission}}</b> - Year: <b>{{truck.model}}</b>
+              </h5>
+              <hr>
+              <div style="float: right;">
+                  <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" routerLink="/admin/post/truck/{{truck.id}}"
+                  >Update</button>
+                  <!-- <button style="margin-left: 10px; background-color: mediumseagreen; border-color: mediumseagreen;" nzSize="small" nz-button nzType="primary" routerLink="/admin/car/location/{{car.id}}"
+                  >Location</button> -->
+                  <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="deleteTruck(truck.id)"
+                  nzDanger>Delete</button>
+              </div>
+          </div>
+
+      </div>
+  </div>
+</div>

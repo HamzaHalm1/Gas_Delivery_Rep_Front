@@ -72,7 +72,7 @@ export class UpdateDriverComponent {
       console.log(formData);
       this.adminService.updateDriver(this.userId,formData).subscribe((res)=>{
         this.message.success("Driver updated successfully", {nzDuration: 5000});
-        this.router.navigateByUrl("/admin/dashboard");
+        this.router.navigateByUrl("/admin/list/drivers");
         console.log(res);
       }, error =>{
         this.message.error("Error while updating the driver", {nzDuration: 5000})

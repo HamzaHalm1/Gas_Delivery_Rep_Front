@@ -1,15 +1,9 @@
 export const navbarData = [
 
   {
-    routeLink: '/admin/dashboard',
+    routeLink: '/admin/list/gas',
     icon: 'fal fa-analytics',
     label: 'Dashboard'
-  },
-
-  {
-    routeLink: '/admin/post/gas',
-    icon: 'fal fa-oil-can',
-    label: 'Gas'
   },
 
   {
@@ -19,13 +13,19 @@ export const navbarData = [
   },
 
   {
-    routeLink: '/admin/search',
+    routeLink: '/admin/list/gas',
+    icon: 'fal fa-oil-can',
+    label: 'Gas'
+  },
+
+  {
+    routeLink: '/admin/list/trucks',
     icon: 'fal fa-truck',
     label: 'Trucks'
   },
 
   {
-    routeLink: '/admin/post/driver',
+    routeLink: '/admin/list/drivers',
     icon: 'fal fa-user',
     label: 'Drivers'
   },

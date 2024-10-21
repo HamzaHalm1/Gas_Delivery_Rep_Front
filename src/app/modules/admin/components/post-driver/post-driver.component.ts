@@ -60,7 +60,7 @@ export class PostDriverComponent {
     console.log(formData);
     this.adminService.postDriver(formData).subscribe((res)=>{
       this.message.success("Driver posted successfully", {nzDuration: 5000});
-      this.router.navigateByUrl("/admin/dashboard");
+      this.router.navigateByUrl("/admin/list/drivers");
       console.log(res);
     }, error =>{
       this.message.error("Error while posting Driver", {nzDuration: 5000})

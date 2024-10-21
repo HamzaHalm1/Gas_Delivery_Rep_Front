@@ -12,20 +12,24 @@
 </div>
 
 <div *ngIf="isAdminLoggedIn">
-  <nz-header class="main-header" nz-row nzType="flex" class="custom-navbar">
+  <!-- <nz-header class="main-header" nz-row nzType="flex" class="custom-navbar">
     <div class="navbar-title">
       <a routerLink="/login"><img src="assets\images\ChronoGaz_logo.png" ></a>
     </div>
     <div class="nav-links">
-      <a nz-button nzType="link" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+      <a nz-button nzType="link" routerLink="/admin/list/gas" routerLinkActive="active">gas</a>
+      <a nz-button nzType="link" routerLink="/admin/list/drivers" routerLinkActive="active">drivers</a>
+      <a nz-button nzType="link" routerLink="/admin/list/trucks" routerLinkActive="active">trucks</a>
       <a nz-button nzType="link" routerLink="/admin/post/gas" routerLinkActive="active">Post Gas Bottle</a>
+      <a nz-button nzType="link" routerLink="/admin/post/truck" routerLinkActive="active">Post Trucks</a>
+      <a nz-button nzType="link" routerLink="/admin/post/driver" routerLinkActive="active">Post Driver</a>
       <a nz-button nzType="link" routerLink="/admin/purchases" routerLinkActive="active">Purchases</a>
       <a nz-button nzType="link" routerLink="/admin/search" routerLinkActive="active">Search Gas Bottle</a>
       <a nz-button nzType="link" routerLink="/admin/post/driver" routerLinkActive="active">Post Driver</a>
       <a nz-button nzType="link" (click)="logout()" routerLinkActive="active">Logout</a>
     </div>
-  </nz-header>
-  <!-- <app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav> -->
+  </nz-header> -->
+  <app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
 </div>
 
 <router-outlet></router-outlet>
