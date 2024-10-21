@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {NgZorroImportsModule} from './NgZorroImportsModule'
 import { GoogleMapsModule } from '@angular/google-maps';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 
@@ -27,7 +28,8 @@ registerLocaleData(en);
   declarations: [
     AppComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
