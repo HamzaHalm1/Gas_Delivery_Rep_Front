@@ -16,6 +16,8 @@ import { GetDriverComponent } from './components/get-driver/get-driver.component
 import { GetTruckComponent } from './components/get-truck/get-truck.component';
 import { PostTruckComponent } from './components/post-truck/post-truck.component';
 import { UpdateTruckComponent } from './components/update-truck/update-truck.component';
+import { SearchDriverComponent } from './components/search-driver/search-driver.component';
+import { SearchTruckComponent } from './components/search-truck/search-truck.component';
 
 
 
@@ -32,7 +34,9 @@ import { UpdateTruckComponent } from './components/update-truck/update-truck.com
     GetDriverComponent,
     GetTruckComponent,
     PostTruckComponent,
-    UpdateTruckComponent
+    UpdateTruckComponent,
+    SearchDriverComponent,
+    SearchTruckComponent
   ],
   imports: [
     CommonModule,

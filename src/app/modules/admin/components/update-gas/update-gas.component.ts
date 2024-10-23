@@ -61,7 +61,11 @@ export class UpdateGasComponent {
 
       formData.append('type', this.updateForm.get('type')?.value);
 
-      formData.append('quantity', this.updateForm.get('quantity')?.value);
+      let Q= this.updateForm.get('quantity')?.value;
+      if(Q==null){
+        Q=0;
+      }
+      formData.append('quantity', Q);
 
       formData.append('description', this.updateForm.get('description')?.value);
 
@@ -72,7 +76,7 @@ export class UpdateGasComponent {
       console.log(formData);
       this.adminService.updateGas(this.gasId,formData).subscribe((res)=>{
         this.message.success("Gas Bottle updated successfully", {nzDuration: 5000});
-        this.router.navigateByUrl("/admin/dashboard");
+        this.router.navigateByUrl("/admin/search/gas");
         console.log(res);
       }, error =>{
         this.message.error("Error while updating the gas bottle", {nzDuration: 5000})

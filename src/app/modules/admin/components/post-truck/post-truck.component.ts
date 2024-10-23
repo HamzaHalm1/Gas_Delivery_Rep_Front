@@ -38,7 +38,6 @@ export class PostTruckComponent {
       description: [null, Validators.required],
       transmission: [null, Validators.required],
       fuel: [null, Validators.required],
-      model: [null, Validators.required], // The model year picker
     });
   }
 
@@ -47,27 +46,28 @@ export class PostTruckComponent {
     this.isSpinning = true;
 
     const formData: FormData = new FormData();
-    formData.append('image', this.selectedFile);
 
+    if (this.selectedFile) {
+      formData.append('image', this.selectedFile);
+  }
     formData.append('brand', this.postTruckForm.get('brand')?.value);
     formData.append('type', this.postTruckForm.get('type')?.value);
-    formData.append('quantity', this.postTruckForm.get('quantity')?.value);
+    let Q= this.postTruckForm.get('quantity')?.value;
+    if(Q==null){
+      Q=0;
+    }
+    formData.append('quantity', Q);
     formData.append('transmission', this.postTruckForm.get('transmission')?.value);
     formData.append('fuel', this.postTruckForm.get('fuel')?.value);
     formData.append('color', this.postTruckForm.get('color')?.value);
     formData.append('description', this.postTruckForm.get('description')?.value);
-
-    // Extracting the year from the Date object
-    const modelDate = this.postTruckForm.get('model')?.value;
-    const modelYear = modelDate ? new Date(modelDate).getFullYear() : null;
-    formData.append('model', modelYear?.toString() ?? ''); // Submitting the year as a string
 
     console.log(formData);
 
     this.adminService.postTruck(formData).subscribe(
       (res) => {
         this.message.success("Truck posted successfully", { nzDuration: 5000 });
-        this.router.navigateByUrl("/admin/list/trucks");
+        this.router.navigateByUrl("/admin/search/truck");
         console.log(res);
       },
       (error) => {

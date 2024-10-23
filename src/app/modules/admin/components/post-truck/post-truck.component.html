@@ -13,6 +13,7 @@
                               <label for="upload_profile_image" class="upload-label" *ngIf="selectedFile">
                                   <img class="profile" [src]="imagePreview" alt="profile" />
                               </label>
+                              
                               <input type="file" nz-button nzType="primary" id="upload_profile_image"
                                   accept="image/x-png,image/gif,image/jpeg" (change)="onFileSelected($event)"/>
                               <button nz-button nzShape="circle"></button>
@@ -81,15 +82,6 @@
                             </nz-form-control>
                         </nz-form-item>
                     </div>
-
-
-                    <div nz-col nzSpan="24">
-                      <nz-form-item>
-                          <nz-form-control nzHasFeedback [nzXs]="24" nzErrorTip="This Input Is Required!">
-                              <nz-year-picker style="width: 100%;" nzPlaceHolder="Model Year" formControlName="model"></nz-year-picker>
-                          </nz-form-control>
-                      </nz-form-item>
-                  </div>
 
                       <div nz-col nzSpan="24">
                           <nz-form-item>

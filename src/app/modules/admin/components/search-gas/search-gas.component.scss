@@ -1,12 +1,5 @@
 
-.firstFilterInput { 
-    min-width: 260px;
-}
-.filterBtn {
-width: 207px;
-background-color: black; 
-float: right !important;
-}
+
 .inner-content {
 
 padding: 32px;
@@ -15,7 +8,7 @@ padding-bottom: 60px;
 // min-height: 91vh;
 }
 .sider-content-wrapper.ant-layout-content {
-max-height: calc(100vh - 115px); 
+max-height: calc(100vh - 115px);
 overflow-y: auto;
 }
 
@@ -27,6 +20,7 @@ box-shadow: 1px 1px 15px -7px rgba(0, 0, 0, 0.1);
 border-radius: 5px;
 padding: 25px;
 margin-bottom: 22px;
+margin-left: 5rem;
 }
 
 .filters-category-flex {
@@ -90,9 +84,9 @@ margin-bottom: 10px;
             color: #ff7800;
         }
     }
-    
+
 .filter-fields-width {
-    display: flex; 
+    display: flex;
     align-items: center;
     flex-wrap:wrap;
     // margin-bottom: 21px;
@@ -112,7 +106,7 @@ margin-bottom: 10px;
     }
     }
     P {
-    margin: 0px; 
+    margin: 0px;
     font-weight: 300;
     font-size: 14px;
     color: #141a33;
@@ -167,7 +161,7 @@ margin-bottom: 10px;
     justify-content: flex-end;
     flex: 1;
     }
-    
+
 .docInfo {
     margin-left: 160px;
     h3 {
@@ -228,7 +222,7 @@ margin-bottom: 10px;
     font-weight: bold;
     }
 
-    
+
 .vertical-center { margin: 0;
     position: absolute; top: 50%;
     -ms-transform: translateY(-50%); transform: translateY(-50%);

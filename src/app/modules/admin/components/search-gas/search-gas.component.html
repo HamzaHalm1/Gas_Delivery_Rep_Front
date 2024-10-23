@@ -7,7 +7,7 @@
                     <nz-form-item>
                         <nz-form-label nzFor="gender">Brand</nz-form-label>
                         <nz-form-control nzErrorTip="This Input Is Required!">
-                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Brand" formControlName="brand">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Brand" formControlName="brand" (ngModelChange)="searchGas()">
                                 <nz-option *ngFor="let brand of listOfBrands" nzLabel={{brand}}
                                     nzValue={{brand}}></nz-option>
                             </nz-select>
@@ -17,18 +17,13 @@
                     <nz-form-item>
                         <nz-form-label nzFor="studentClass">Type</nz-form-label>
                         <nz-form-control nzErrorTip="This Input Is Required! ">
-                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Type" formControlName="type">
+                            <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Type" formControlName="type" (ngModelChange)="searchGas()">
                                 <nz-option *ngFor="let type of listOfType" nzLabel={{type}}
                                     nzValue={{type}}></nz-option>
                             </nz-select>
                         </nz-form-control>
                     </nz-form-item>
 
-                </div>
-                <div class="filter-select-dropdown filter-fields-width">
-                    <button class="filterBtn" nz-button nzType="primary" (click)="searchGas()">
-                        Search Gas Bottle
-                    </button>
                 </div>
             </div>
         </div>
@@ -39,7 +34,10 @@
     <div style="padding-bottom: 30px; margin-bottom: 21px;" class="child" *ngFor="let gas of gas">
         <div nz-row>
             <div nz-col nzSpan="8">
-                <img class="profile" style="height: 130px; width: 200px; border-radius: 10px;" [src]="gas.processedImg" alt="profile"/>
+              <img class="profile"
+              style="height: 130px; width: 200px; border-radius: 10px;"
+              [src]="gas.processedImg ? gas.processedImg : 'assets/images/default-gas.png'"
+              alt="gas image"/>
             </div>
             <div nz-col nzSpan="16">
                 <h2 style="cursor: pointer; color: #108ee9;">
@@ -52,7 +50,7 @@
                 </h5>
                 <hr>
                 <div style="float: right;">
-                    <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" routerLink="/admin/gas/{{gas.id}}"
+                    <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" routerLink="/admin/post/gas/{{gas.id}}"
                     >Update</button>
                     <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="deleteGas(gas.id)"
                     nzDanger>Delete</button>

@@ -1,0 +1,72 @@
+<div class="inner-content">
+  <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
+      <div class="dashboard-filter">
+          <div class="filter-grid" [formGroup]="searchDriverForm">
+              <div class="filter-select-dropdown filter-fields-width">
+
+                  <nz-form-item>
+                      <nz-form-label nzFor="gender">Name</nz-form-label>
+                      <nz-form-control nzErrorTip="This Input Is Required!">
+                          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a name" formControlName="name" (ngModelChange)="searchDriver()">
+                              <nz-option *ngFor="let name of listOfNames" nzLabel={{name}}
+                                  nzValue={{name}}></nz-option>
+                          </nz-select>
+                      </nz-form-control>
+                  </nz-form-item>
+
+                  <nz-form-item>
+                      <nz-form-label nzFor="studentClass">Phone Number</nz-form-label>
+                      <nz-form-control nzErrorTip="This Input Is Required! ">
+                          <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a Phone number" formControlName="phoneNumber" (ngModelChange)="searchDriver()">
+                              <nz-option *ngFor="let phone of listOfPhoneNumber" nzLabel={{phone}}
+                                  nzValue={{phone}}></nz-option>
+                          </nz-select>
+                      </nz-form-control>
+                  </nz-form-item>
+
+                  <nz-form-item>
+                    <nz-form-label nzFor="gender">driving license</nz-form-label>
+                    <nz-form-control nzErrorTip="This Input Is Required!">
+                        <nz-select nzShowSearch nzAllowClear nzPlaceHolder="Select a driving License Type" formControlName="drivingLicenseType" (ngModelChange)="searchDriver()">
+                            <nz-option *ngFor="let drivingLicenseType of listOfDrivingLicense" nzLabel={{drivingLicenseType}}
+                                nzValue={{drivingLicenseType}}></nz-option>
+                        </nz-select>
+                    </nz-form-control>
+                </nz-form-item>
+
+              </div>
+          </div>
+      </div>
+  </nz-spin>
+</div>
+
+<div style="min-height: 91vh; background-color: #f8f8f8;">
+  <div style="padding-bottom: 30px; margin-bottom: 21px;" class="child" *ngFor="let driver of drivers">
+    <div nz-row>
+        <div nz-col nzSpan="8">
+          <img class="profile"
+          style="height: 130px; width: 200px; border-radius: 10px;"
+          [src]="driver.processedImg ? driver.processedImg : 'assets/images/default-driver.jpg'"
+          alt="Driver Image"/>
+        </div>
+        <div nz-col nzSpan="16">
+            <h2 style="cursor: pointer; color: #108ee9;">
+            {{driver.name}}</h2>
+            <p>License Number: {{driver.licenseNumber}}</p>
+
+            <hr>
+            <h5>Email: <b>{{driver.email}}</b>  - Phone:
+                <b>{{driver.phoneNumber}}</b> - Driving License Type:
+                <b>{{driver.drivingLicenseType}}</b>
+            </h5>
+            <hr>
+            <div style="float: right;">
+                <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" routerLink="/admin/post/driver/{{driver.id}}">
+                Update</button>
+                <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary" (click)="deleteDriver(driver.id)" nzDanger>
+                Delete</button>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>

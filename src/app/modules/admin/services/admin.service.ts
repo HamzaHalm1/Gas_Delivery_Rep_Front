@@ -98,6 +98,13 @@ export class AdminService {
     });
   }
 
+  searchDriver(searchDriverDto: any):Observable<any>{
+    return this.http.post(BASIC_URL + "/api/admin/driver/search", searchDriverDto, {
+      headers: this.createAuthorizationHeader()
+    });
+
+  }
+
   postTruck(truckDto: any):Observable<any>{
     return this.http.post(BASIC_URL + "/api/admin/post/truck", truckDto, {
       headers: this.createAuthorizationHeader()
@@ -125,9 +132,16 @@ export class AdminService {
   }
 
   updateTruck(truckId:number,truckDto:any):Observable<any>{
-    return this.http.put(BASIC_URL + "/api/admin/gas/"+ truckId, truckDto, {
+    return this.http.put(BASIC_URL + "/api/admin/truck/"+ truckId, truckDto, {
       headers: this.createAuthorizationHeader()
     });
+  }
+
+  searchTruck(searchTruckDto: any):Observable<any>{
+    return this.http.post(BASIC_URL + "/api/admin/truck/search", searchTruckDto, {
+      headers: this.createAuthorizationHeader()
+    });
+
   }
 
   createAuthorizationHeader(): HttpHeaders{

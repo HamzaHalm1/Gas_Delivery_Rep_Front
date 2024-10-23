@@ -12,6 +12,8 @@ import { GetDriverComponent } from './components/get-driver/get-driver.component
 import { PostTruckComponent } from './components/post-truck/post-truck.component';
 import { UpdateTruckComponent } from './components/update-truck/update-truck.component';
 import { GetTruckComponent } from './components/get-truck/get-truck.component';
+import { SearchDriverComponent } from './components/search-driver/search-driver.component';
+import { SearchTruckComponent } from './components/search-truck/search-truck.component';
 
 
 const routes: Routes = [
@@ -21,10 +23,12 @@ const routes: Routes = [
   {path:"post/gas", component: PostGasComponent},
   {path:"post/gas/:id", component: UpdateGasComponent},
   {path:"purchases", component: GetPurchasesComponent},
-  {path:"search", component: SearchGasComponent},
+  {path:"search/gas", component: SearchGasComponent},
+  {path:"search/driver", component: SearchDriverComponent},
   {path:"post/driver", component: PostDriverComponent},
   {path:"post/truck/:id", component: UpdateTruckComponent},
   {path:"post/truck", component: PostTruckComponent},
+  {path:"search/truck", component: SearchTruckComponent},
   {path:"gas/location/:id", component: LocationPageComponent},
   {path:"post/driver/:id", component: UpdateDriverComponent},
 

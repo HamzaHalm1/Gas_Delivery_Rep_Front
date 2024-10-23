@@ -40,8 +40,10 @@ export class PostDriverComponent {
     this.isSpinning=true;
     const formData: FormData = new FormData();
 
-    formData.append('image', this.selectedFile);
-
+    if (this.selectedFile) {
+      formData.append('image', this.selectedFile);
+  }
+  
     formData.append('name', this.postDriverForm.get('name')?.value);
 
     formData.append('email', this.postDriverForm.get('email')?.value);
@@ -60,7 +62,7 @@ export class PostDriverComponent {
     console.log(formData);
     this.adminService.postDriver(formData).subscribe((res)=>{
       this.message.success("Driver posted successfully", {nzDuration: 5000});
-      this.router.navigateByUrl("/admin/list/drivers");
+      this.router.navigateByUrl("/admin/search/driver");
       console.log(res);
     }, error =>{
       this.message.error("Error while posting Driver", {nzDuration: 5000})

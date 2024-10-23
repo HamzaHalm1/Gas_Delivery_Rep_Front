@@ -1,10 +1,12 @@
 <nz-spin [nzSpinning]="isSpinning" [nzSize]="'large'" nzTip="Working...">
-    <nz-table #basicTable [nzData]="purchases" [nzPageSize]="20" [nzShowPagination]="'false'">
+    <nz-table #basicTable style="margin-left: 5rem;" [nzData]="purchases" [nzPageSize]="20" [nzShowPagination]="'false'">
         <thead>
             <tr>
-                <th style="font-weight: bolder; color: #003973; ">User Name</th>
-                <th style="font-weight: bolder; color: #003973; ">Phone Number</th>
-                <th style="font-weight: bolder; color: #003973; ">Price</th>
+                <th style="font-weight: bolder; color: #003973; width:200px;">User Name</th>
+                <th style="font-weight: bolder; color: #003973; width:200px;">Phone Number</th>
+                <th style="font-weight: bolder; color: #003973; ">Gas Bottle Type</th>
+                <th style="font-weight: bolder; color: #003973; ">quantity</th>
+                <th style="font-weight: bolder; color: #003973; ">Total Price</th>
                 <th style="font-weight: bolder; color: #003973; ">Adresse</th>
                 <th style="font-weight: bolder; color: #003973; ">Status</th>
                 <th style="font-weight: bolder; color: #003973; ">Action</th>
@@ -14,6 +16,8 @@
             <tr *ngFor="let purchase of basicTable.data">
                 <td>{{purchase. username}}</td>
                 <td>{{purchase. phoneNumber}}</td>
+                <td>{{purchase. gasBottleType}}</td>
+                <td>{{purchase. quantity}}</td>
                 <td>{{purchase. price}}</td>
                 <td>{{purchase. adresse}}</td>
                 <td>

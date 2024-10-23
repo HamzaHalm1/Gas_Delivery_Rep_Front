@@ -13,22 +13,35 @@ export const navbarData = [
   },
 
   {
-    routeLink: '/admin/list/gas',
-    icon: 'fal fa-oil-can',
+    routeLink: '/admin/search/gas',
+    icon: 'fal fa-fire',
     label: 'Gas'
   },
 
   {
-    routeLink: '/admin/list/trucks',
+    routeLink: '/admin/search/truck',
     icon: 'fal fa-truck',
     label: 'Trucks'
   },
 
   {
-    routeLink: '/admin/list/drivers',
-    icon: 'fal fa-user',
+    routeLink: '/admin/search/driver',
+    icon: 'fal fa-file-user',
     label: 'Drivers'
   },
+
+  {
+    routeLink: '',
+    icon: '',
+    label: ''
+  }
+  ,
+  {
+    routeLink: '',
+    icon: '',
+    label: ''
+  }
+  ,
 
   {
     routeLink: '',
